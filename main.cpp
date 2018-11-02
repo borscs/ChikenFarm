@@ -15,15 +15,16 @@ int main( int argc, char *argv[] )
 	bool noQuit = true;
 	do {
 		utils.printMenu();
-		switch ( utils.getINput()) {
+		switch ( utils.getInput()) {
 			case static_cast<int>(utils::MenuPoints::ADD_CHICKEN):
 				farm.addChicken();
 				break;
 			case static_cast<int>(utils::MenuPoints::KILL_CHICKEN):
 				qDebug() << "Which chicken kill?";
-				farm.killChicken(utils.getINput());
+				farm.killChicken(utils.getInput());
 				break;
 			case static_cast<int>(utils::MenuPoints::LIST_CHICKEN_EGGS):
+
 				break;
 			case static_cast<int>(utils::MenuPoints::LIST_CHICKENS_INTERVAL):
 				break;
