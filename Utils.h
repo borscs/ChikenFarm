@@ -19,11 +19,13 @@ enum class MenuPoints: int
 class Utils
 {
 public:
-	int getINput(){
+	int getINput()
+	{
 		QTextStream qTextStream(stdin);
 		return qTextStream.read(1).toInt();
 	}
-	void printMenu(){
+	void printMenu()
+	{
 		qDebug() << "CHICKEN FARM v1.0";
 		qDebug() << "1: Add chicken";
 		qDebug() << "2: Kill chicken";

@@ -1,15 +1,21 @@
-//
-// Created by borscs on 11/2/18.
-//
+#pragma  once
 
-#ifndef CHIKENFARM_CHICKEN_H
-#define CHIKENFARM_CHICKEN_H
+#include <QtCore/QObject>
+#include <QTimer>
 
-
-class Chicken
+class Chicken: public QObject
 {
+public:
+	Chicken( int chickenId );
+
+
+public:
+	void initChikenSlot();
+
+private:
+	float eggInterval;
+	int chickenId;
+	int eggCount = 0;
+	QTimer *qTime;
 
 };
-
-
-#endif //CHIKENFARM_CHICKEN_H

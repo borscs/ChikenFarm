@@ -1,15 +1,21 @@
-//
-// Created by borscs on 11/2/18.
-//
+#pragma once
 
-#ifndef CHIKENFARM_FARM_H
-#define CHIKENFARM_FARM_H
+#include <QThread>
+#include <QMap>
+#include <QPair>
+#include "Chicken.h"
 
-
-class Farm
+class Farm: public QObject
 {
+public:
+	void addChicken();
+
+private:
+	QPair<QThread *, Chicken *> addQthradAndChicken( QThread *qThread, Chicken *chicken );
+
+private:
+	QMap<int, QPair<QThread *, Chicken * >> chickens;
+	int numberOfChicken = 1;
 
 };
 
-
-#endif //CHIKENFARM_FARM_H
