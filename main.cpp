@@ -21,6 +21,7 @@ int main( int argc, char *argv[] )
 				break;
 			case static_cast<int>(utils::MenuPoints::KILL_CHICKEN):
 				qDebug() << "Which chicken kill?";
+				farm.killChicken(utils.getINput());
 				break;
 			case static_cast<int>(utils::MenuPoints::LIST_CHICKEN_EGGS):
 				break;

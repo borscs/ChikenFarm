@@ -17,7 +17,21 @@ void Farm::addChicken()
 
 	numberOfChicken++;
 }
+void Farm::killChicken( const int &id )
+{
 
+	if (!(chickens.find(id) != chickens.end())) {
+
+		qDebug() << "No this  chiekjn in farm, Try ather one";
+	}
+	else {
+		chickens.value(id).first->quit();
+		chickens.value(id).first->wait();
+
+		delete chickens.value(id).first;
+		delete chickens.value(id).second;
+	}
+}
 QPair<QThread *, Chicken *> Farm::addQthradAndChicken( QThread *qThread, Chicken *chicken )
 {
 	QPair<QThread *, Chicken *> chickenData;

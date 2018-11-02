@@ -7,7 +7,7 @@ class Chicken: public QObject
 {
 public:
 	Chicken( int chickenId );
-
+	~Chicken();
 
 public:
 	void initChikenSlot();

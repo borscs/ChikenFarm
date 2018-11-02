@@ -9,6 +9,7 @@ class Farm: public QObject
 {
 public:
 	void addChicken();
+	void killChicken( const int &id );
 
 private:
 	QPair<QThread *, Chicken *> addQthradAndChicken( QThread *qThread, Chicken *chicken );
