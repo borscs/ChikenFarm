@@ -19,7 +19,7 @@ enum class MenuPoints: int
 class Utils
 {
 public:
-	int getINput()
+	int getInput()
 	{
 		QTextStream qTextStream(stdin);
 		return qTextStream.read(1).toInt();

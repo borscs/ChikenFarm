@@ -9,11 +9,14 @@ class Farm: public QObject
 {
 public:
 	void addChicken();
+	void killChicken( const int &id );
 
 private:
-	QPair<QThread *, Chicken *> addQthradAndChicken( QThread *qThread, Chicken *chicken );
+	QPair<QThread *, Chicken *> addQThreadAndChicken( QThread *qThread, Chicken *chicken );
+	bool killedChicken( const int &id );
 
 private:
+	QList<int> killeddChicekns;
 	QMap<int, QPair<QThread *, Chicken * >> chickens;
 	int numberOfChicken = 1;
 

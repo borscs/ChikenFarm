@@ -27,3 +27,7 @@ void Chicken::initChikenSlot()
 
 	qDebug() << "ChickeID:" << chickenId << " Total eggs: " << eggCount;
 }
+Chicken::~Chicken()
+{
+	delete qTime;
+}
