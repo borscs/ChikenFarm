@@ -2,19 +2,20 @@
 
 #include <QtCore/QObject>
 #include <QTimer>
-class Chicken : public QObject
+
+class Chicken: public QObject
 {
- public:
-	Chicken(int chickenId);
+public:
+	Chicken( int chickenId );
 
 
 public:
 	void initChikenSlot();
 
- private:
+private:
 	float eggInterval;
 	int chickenId;
-	int eggCount=0;
+	int eggCount = 0;
 	QTimer *qTime;
 
 };

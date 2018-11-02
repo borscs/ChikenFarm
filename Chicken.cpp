@@ -5,6 +5,7 @@
 #include <QRandomGenerator>
 #include <QThread>
 #include "qtimer.h"
+
 Chicken::Chicken( int chickenId )
 	: chickenId(chickenId)
 {
