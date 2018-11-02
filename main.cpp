@@ -17,6 +17,7 @@ int main( int argc, char * argv[])
 		utils.printMenu();
 		switch (utils.getINput()) {
 			case static_cast<int>(utils::MenuPoints::ADD_CHICKEN):
+				farm.addChicken();
 				break;
 			case static_cast<int>(utils::MenuPoints::KILL_CHICKEN):
 				qDebug()<< "Which chicken kill?";
