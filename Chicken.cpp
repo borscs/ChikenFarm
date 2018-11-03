@@ -31,3 +31,7 @@ Chicken::~Chicken()
 {
 	delete qTime;
 }
+int Chicken::getEggCount() const
+{
+	return eggCount;
+}

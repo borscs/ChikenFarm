@@ -57,3 +57,10 @@ bool Farm::killedChicken( const int &id )
 	return in;
 
 }
+void Farm::listChikensAndEgss()
+{
+	for(auto it = chickens.begin();it!=chickens.end();++it){
+		qDebug()<<" Chiken: "<< it.key()<<" Eggs: "<<it.value().second->getEggCount();
+	}
+
+}
