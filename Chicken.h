@@ -14,11 +14,12 @@ public:
 	int getEggCount() const;
 
 private:
+	void eggCountPlusOne();
+
+private:
 	float eggInterval;
 	int chickenId;
 	int eggCount = 0;
-
-private:
 	QTimer *qTime;
 
 };
