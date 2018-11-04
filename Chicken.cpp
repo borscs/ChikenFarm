@@ -18,7 +18,7 @@ Chicken::Chicken( int chickenId )
 	qDebug() << "Chicken: " << chickenId << "interval:" << eggInterval;
 
 }
-void Chicken::initChikenSlot()
+void Chicken::initChickenSlot()
 {
 	qTime = new QTimer();
 	qTime->setInterval(eggInterval * 1000);
@@ -26,7 +26,6 @@ void Chicken::initChikenSlot()
 
 	qTime->start();
 
-	qDebug() << "ChickeID:" << chickenId << " Total eggs: " << eggCount;
 }
 Chicken::~Chicken()
 {
@@ -36,9 +35,10 @@ int Chicken::getEggCount() const
 {
 	return eggCount;
 }
-void Chicken::eggCountPlusOne()
+void Chicken::layAnEgg()
 {
 	eggCount++;
+	qDebug() << "ChickeID:" << chickenId << " Total eggs: " << eggCount;
 }
 float Chicken::getEggInterval() const
 {
@@ -47,4 +47,8 @@ float Chicken::getEggInterval() const
 int Chicken::getChickenId() const
 {
 	return chickenId;
+}
+void Chicken::eggCountPlusOne()
+{
+	eggCount++;
 }

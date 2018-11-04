@@ -10,10 +10,11 @@ public:
 	~Chicken();
 
 public:
-	void initChikenSlot();
 	int getEggCount() const;
-	float getEggInterval() const;
 	int getChickenId() const;
+	float getEggInterval() const;
+	void layAnEgg();
+	void initChickenSlot();
 	void eggCountPlusOne();
 
 private:

@@ -24,7 +24,7 @@ int main( int argc, char *argv[] )
 				farm.killChicken(utils.getInput());
 				break;
 			case static_cast<int>(utils::MenuPoints::LIST_CHICKEN_EGGS):
-				farm.listChikensAndEgss();
+				farm.listChickensAndEgss();
 				break;
 			case static_cast<int>(utils::MenuPoints::LIST_CHICKENS_INTERVAL):
 				farm.listEggInterval();
