@@ -15,7 +15,6 @@ void Farm::addChicken()
 	connect(qThread, &QThread::started, chicken, &Chicken::initChickenSlot);
 	qThread->start(QThread::NormalPriority);
 
-
 	numberOfChicken++;
 }
 void Farm::killChicken( const int &id )
@@ -51,14 +50,12 @@ void Farm::listChickensAndEgss()
 	for ( auto it:chickens ) {
 		qDebug() << "----Chiken: " << it.second->getChickenId() << " Eggs: " << it.second->getEggCount();
 	}
-
 }
 void Farm::listEggInterval()
 {
 	for ( auto it: chickens ) {
 		qDebug() << "----Chiken: " << it.second->getChickenId() << " Interval: " << it.second->getEggInterval();
 	}
-
 }
 void Farm::layAnEgg( const int &id )
 {
@@ -73,5 +70,4 @@ void Farm::killAllChicken()
 	for ( auto it: chickens.keys()) {
 		killChicken(it);
 	}
-
 }
