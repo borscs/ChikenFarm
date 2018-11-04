@@ -74,3 +74,12 @@ void Farm::listEggInterval()
 	}
 
 }
+void Farm::layAnEgg( const int &id )
+{
+	for ( auto it: chickens ) {
+		if ( id == it.second->getChickenId()) {
+			it.second->eggCountPlusOne();
+			qDebug() << "---Chiken: " << it.second->getChickenId() << " Eggy: " << it.second->getEggCount();
+		}
+	}
+}
