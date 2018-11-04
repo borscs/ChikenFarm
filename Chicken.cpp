@@ -40,3 +40,11 @@ void Chicken::eggCountPlusOne()
 {
 	eggCount++;
 }
+float Chicken::getEggInterval() const
+{
+	return eggInterval;
+}
+int Chicken::getChickenId() const
+{
+	return chickenId;
+}
