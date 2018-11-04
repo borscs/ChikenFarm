@@ -12,7 +12,7 @@ public:
 	void killChicken( const int &id );
 	void listChikensAndEgss();
 	void listEggInterval();
-	void layAnEgg(const int &id);
+	void layAnEgg( const int &id );
 
 private:
 	QPair<QThread *, Chicken *> addQThreadAndChicken( QThread *qThread, Chicken *chicken );
