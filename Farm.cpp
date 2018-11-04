@@ -62,8 +62,15 @@ bool Farm::killedChicken( const int &id )
 }
 void Farm::listChikensAndEgss()
 {
-	for ( auto it = chickens.begin(); it != chickens.end(); ++it ) {
-		qDebug() << "-------- Chiken: " << it.key() << " Eggs: " << it.value().second->getEggCount();
+	for ( auto it:chickens ) {
+		qDebug() << "----Chiken: " << it.second->getChickenId() << " Eggs: " << it.second->getEggCount();
+	}
+
+}
+void Farm::listEggInterval()
+{
+	for ( auto it: chickens ) {
+		qDebug() << "----Chiken: " << it.second->getChickenId() << " Interval: " << it.second->getEggInterval();
 	}
 
 }

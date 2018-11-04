@@ -27,6 +27,7 @@ int main( int argc, char *argv[] )
 				farm.listChikensAndEgss();
 				break;
 			case static_cast<int>(utils::MenuPoints::LIST_CHICKENS_INTERVAL):
+				farm.listEggInterval();
 				break;
 			case static_cast<int>(utils::MenuPoints::LAY_EGG_NOW):
 				break;

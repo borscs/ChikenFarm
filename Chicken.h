@@ -12,6 +12,8 @@ public:
 public:
 	void initChikenSlot();
 	int getEggCount() const;
+	float getEggInterval() const;
+	int getChickenId() const;
 
 private:
 	void eggCountPlusOne();
