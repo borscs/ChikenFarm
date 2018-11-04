@@ -36,6 +36,7 @@ int main( int argc, char *argv[] )
 				farm.killAllChicken();
 				break;
 			case static_cast<int>(utils::MenuPoints::EXIT):
+				farm.killAllChicken();
 				noQuit = false;
 				break;
 			default:

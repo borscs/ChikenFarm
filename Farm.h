@@ -14,7 +14,6 @@ public:
 	void listEggInterval();
 	void layAnEgg( const int &id );
 	void killAllChicken();
-
 private:
 	QPair<QThread *, Chicken *> addQThreadAndChicken( QThread *qThread, Chicken *chicken );
 
