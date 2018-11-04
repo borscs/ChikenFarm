@@ -12,7 +12,7 @@ void Farm::addChicken()
 	chickens.insert(numberOfChicken, addQThreadAndChicken(qThread, chicken));
 
 	chicken->moveToThread(qThread);
-	connect(qThread, &QThread::started, chicken, &Chicken::initChikenSlot);
+	connect(qThread, &QThread::started, chicken, &Chicken::initChickenSlot);
 	qThread->start(QThread::NormalPriority);
 
 
@@ -21,9 +21,9 @@ void Farm::addChicken()
 void Farm::killChicken( const int &id )
 {
 
-	if ( !(chickens.find(id) != chickens.end()) && killedChicken(id)) {
+	if ( !(chickens.find(id) != chickens.end())) {
 
-		qDebug() << "No this  chiekjn in fa7rm, Try ather one";
+		qDebug() << "No this  chiekjn in farm, Try ather one";
 	}
 	else {
 		qDebug() << chickens.value(id) << endl;
@@ -31,9 +31,9 @@ void Farm::killChicken( const int &id )
 		chickens.value(id).first->quit();
 		chickens.value(id).first->wait();
 
-		QPair<QThread *, Chicken *> deletedChikensData = chickens.take(id);
-		delete deletedChikensData.first;
-		delete deletedChikensData.second;
+		QPair<QThread *, Chicken *> deletedChickensData = chickens.take(id);
+		delete deletedChickensData.first;
+		delete deletedChickensData.second;
 	}
 }
 
@@ -45,22 +45,8 @@ QPair<QThread *, Chicken *> Farm::addQThreadAndChicken( QThread *qThread, Chicke
 
 	return chickenData;
 }
-bool Farm::killedChicken( const int &id )
-{
 
-	bool in = false;
-	for ( auto i: killeddChicekns ) {
-		if ( id == i ) {
-			in = true;
-		}
-	}
-	if ( !in ) {
-		killeddChicekns.push_back(id);
-	}
-	return in;
-
-}
-void Farm::listChikensAndEgss()
+void Farm::listChickensAndEgss()
 {
 	for ( auto it:chickens ) {
 		qDebug() << "----Chiken: " << it.second->getChickenId() << " Eggs: " << it.second->getEggCount();
@@ -78,8 +64,14 @@ void Farm::layAnEgg( const int &id )
 {
 	for ( auto it: chickens ) {
 		if ( id == it.second->getChickenId()) {
-			it.second->eggCountPlusOne();
-			qDebug() << "---Chiken: " << it.second->getChickenId() << " Eggy: " << it.second->getEggCount();
+			it.second->layAnEgg();
 		}
 	}
+}
+void Farm::killAllChicken()
+{
+	for ( auto it: chickens.keys()) {
+		killChicken(it);
+	}
+
 }
