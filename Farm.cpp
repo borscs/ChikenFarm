@@ -74,3 +74,7 @@ void Farm::listEggInterval()
 	}
 
 }
+void Farm::layAnEgg(const int &id)
+{
+
+}
