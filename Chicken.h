@@ -11,6 +11,10 @@ public:
 
 public:
 	void initChikenSlot();
+	int getEggCount() const;
+
+private:
+	void eggCountPlusOne();
 
 private:
 	float eggInterval;
