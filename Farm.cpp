@@ -83,3 +83,11 @@ void Farm::layAnEgg( const int &id )
 		}
 	}
 }
+void Farm::killAllChicken()
+{
+	for(auto it: chickens.keys())
+	{
+		killChicken(it);
+	}
+
+}

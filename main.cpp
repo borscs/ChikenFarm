@@ -33,6 +33,7 @@ int main( int argc, char *argv[] )
 				farm.layAnEgg(utils.getInput());
 				break;
 			case static_cast<int>(utils::MenuPoints::KILL_ALL_CHICKEN):
+				farm.killAllChicken();
 				break;
 			case static_cast<int>(utils::MenuPoints::EXIT):
 				noQuit = false;
