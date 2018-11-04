@@ -9,14 +9,11 @@
 Chicken::Chicken( int chickenId )
 	: chickenId(chickenId)
 {
-
 	QRandomGenerator generator;
 	generator.seed(static_cast<quint32>(QDateTime::currentMSecsSinceEpoch()));
 	eggInterval = ( float ) generator.bounded(10, 115) / 10 + 1;
 
-
 	qDebug() << "Chicken: " << chickenId << "interval:" << eggInterval;
-
 }
 void Chicken::initChickenSlot()
 {
@@ -25,7 +22,6 @@ void Chicken::initChickenSlot()
 	QObject::connect(qTime, &QTimer::timeout, this, &Chicken::eggCountPlusOne);
 
 	qTime->start();
-
 }
 Chicken::~Chicken()
 {

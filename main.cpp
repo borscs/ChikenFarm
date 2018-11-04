@@ -45,6 +45,5 @@ int main( int argc, char *argv[] )
 	}
 	while ( noQuit );
 
-
 	return 0;
 }
