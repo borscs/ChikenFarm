@@ -13,7 +13,7 @@ Chicken::Chicken( int chickenId )
 	generator.seed(static_cast<quint32>(QDateTime::currentMSecsSinceEpoch()));
 	eggInterval = ( float ) generator.bounded(10, 115) / 10 + 1;
 
-	qDebug() << "Chicken: " << chickenId << "interval:" << eggInterval;
+	qDebug() << "Chicken: " << chickenId << "Interval:" << eggInterval;
 }
 void Chicken::initChickenSlot()
 {
@@ -34,7 +34,7 @@ int Chicken::getEggCount() const
 void Chicken::layAnEgg()
 {
 	eggCount++;
-	qDebug() << "ChickeID:" << chickenId << " Total eggs: " << eggCount;
+	qDebug() << "ChickenID:" << chickenId << " Total eggs: " << eggCount;
 }
 float Chicken::getEggInterval() const
 {
