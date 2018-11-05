@@ -30,9 +30,8 @@ void Farm::killChicken( const int &id )
 		chickens.value(id).first->quit();
 		chickens.value(id).first->wait();
 
-		QPair<QThread *, Chicken *> deletedChickensData = chickens.take(id);
-		delete deletedChickensData.first;
-		delete deletedChickensData.second;
+		delete chickens.take(id).second;
+		delete chickens.take(id).first;
 	}
 }
 
@@ -48,13 +47,13 @@ QPair<QThread *, Chicken *> Farm::addQThreadAndChicken( QThread *qThread, Chicke
 void Farm::listChickensAndEgss()
 {
 	for ( auto it:chickens ) {
-		qDebug() << "----Chiken: " << it.second->getChickenId() << " Eggs: " << it.second->getEggCount();
+		qDebug() << "----Chicken: " << it.second->getChickenId() << " Eggs: " << it.second->getEggCount();
 	}
 }
 void Farm::listEggInterval()
 {
 	for ( auto it: chickens ) {
-		qDebug() << "----Chiken: " << it.second->getChickenId() << " Interval: " << it.second->getEggInterval();
+		qDebug() << "----Chicken: " << it.second->getChickenId() << " Interval: " << it.second->getEggInterval();
 	}
 }
 void Farm::layAnEgg( const int &id )
