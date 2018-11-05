@@ -30,9 +30,8 @@ void Farm::killChicken( const int &id )
 		chickens.value(id).first->quit();
 		chickens.value(id).first->wait();
 
-		QPair<QThread *, Chicken *> deletedChickensData = chickens.take(id);
-		delete deletedChickensData.first;
-		delete deletedChickensData.second;
+		delete chickens.take(id).second;
+		delete chickens.take(id).first;
 	}
 }
 
