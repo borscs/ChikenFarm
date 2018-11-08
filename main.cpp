@@ -30,6 +30,7 @@ int main( int argc, char *argv[] )
 				farm.listEggInterval();
 				break;
 			case static_cast<int>(utils::MenuPoints::LAY_EGG_NOW):
+				qDebug()<< "Which chicken?";
 				farm.layAnEgg(utils.getInput());
 				break;
 			case static_cast<int>(utils::MenuPoints::KILL_ALL_CHICKEN):
