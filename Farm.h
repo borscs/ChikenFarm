@@ -19,7 +19,7 @@ private:
 
 private:
 	QMap<int, QPair<QThread *, Chicken * >> chickens;
-	int numberOfChicken = 1;
+	int numberOfChicken = 0;
 
 };
 

@@ -6,6 +6,7 @@
 
 void Farm::addChicken()
 {
+	numberOfChicken++;
 	auto *chicken = new Chicken(numberOfChicken);
 	auto *qThread = new QThread;
 	qDebug() << qThread;
@@ -15,7 +16,6 @@ void Farm::addChicken()
 	connect(qThread, &QThread::started, chicken, &Chicken::initChickenSlot);
 	qThread->start(QThread::NormalPriority);
 
-	numberOfChicken++;
 }
 void Farm::killChicken( const int &id )
 {
