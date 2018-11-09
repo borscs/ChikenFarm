@@ -6,16 +6,18 @@
 
 void Farm::addChicken()
 {
+	numberOfChicken++;
 	auto *chicken = new Chicken(numberOfChicken);
 	auto *qThread = new QThread;
-	qDebug() << qThread;
-	chickens.insert(numberOfChicken, addQThreadAndChicken(qThread, chicken));
+	ThreadAndChicken qThreadAndChicken;
+	qThreadAndChicken.qThread = qThread;
+	qThreadAndChicken.chicken = chicken;
+	chickens.insert(numberOfChicken, qThreadAndChicken);
 
 	chicken->moveToThread(qThread);
 	connect(qThread, &QThread::started, chicken, &Chicken::initChickenSlot);
 	qThread->start(QThread::NormalPriority);
 
-	numberOfChicken++;
 }
 void Farm::killChicken( const int &id )
 {
@@ -25,48 +27,40 @@ void Farm::killChicken( const int &id )
 		qDebug() << "No this  chiekjn in farm, Try ather one";
 	}
 	else {
-		qDebug() << chickens.value(id) << endl;
-		qDebug() << chickens.value(id).first;
-		chickens.value(id).first->quit();
-		chickens.value(id).first->wait();
 
-		delete chickens.take(id).second;
-		delete chickens.take(id).first;
+		chickens.value(id).qThread->quit();
+		chickens.value(id).qThread->wait();
+
+		delete chickens.take(id).qThread;
+		delete chickens.take(id).chicken;
+
 	}
 }
-
-QPair<QThread *, Chicken *> Farm::addQThreadAndChicken( QThread *qThread, Chicken *chicken )
-{
-	QPair<QThread *, Chicken *> chickenData;
-	chickenData.first = qThread;
-	chickenData.second = chicken;
-
-	return chickenData;
-}
-
 void Farm::listChickensAndEgss()
 {
 	for ( auto it:chickens ) {
-		qDebug() << "----Chicken: " << it.second->getChickenId() << " Eggs: " << it.second->getEggCount();
+		qDebug() << "----Chicken: " << it.chicken->getChickenId() << " Eggs: " << it.chicken->getEggCount();
 	}
 }
 void Farm::listEggInterval()
 {
 	for ( auto it: chickens ) {
-		qDebug() << "----Chicken: " << it.second->getChickenId() << " Interval: " << it.second->getEggInterval();
+		qDebug() << "----Chicken: " << it.chicken->getChickenId() << " Interval: " << it.chicken->getEggInterval();
 	}
 }
 void Farm::layAnEgg( const int &id )
 {
 	for ( auto it: chickens ) {
-		if ( id == it.second->getChickenId()) {
-			it.second->layAnEgg();
+		if ( id == it.chicken->getChickenId()) {
+			it.chicken->layAnEgg();
 		}
 	}
 }
 void Farm::killAllChicken()
 {
 	for ( auto it: chickens.keys()) {
+		qDebug() << "Killed chicken id: " << it;
 		killChicken(it);
 	}
 }
+

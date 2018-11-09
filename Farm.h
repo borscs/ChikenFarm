@@ -5,6 +5,12 @@
 #include <QPair>
 #include "Chicken.h"
 
+struct ThreadAndChicken{
+	QThread *qThread;
+	Chicken *chicken;
+
+};
+
 class Farm: public QObject
 {
 public:
@@ -14,12 +20,10 @@ public:
 	void listEggInterval();
 	void layAnEgg( const int &id );
 	void killAllChicken();
-private:
-	QPair<QThread *, Chicken *> addQThreadAndChicken( QThread *qThread, Chicken *chicken );
 
 private:
-	QMap<int, QPair<QThread *, Chicken * >> chickens;
-	int numberOfChicken = 1;
+	QMap<int, ThreadAndChicken > chickens;
+	int numberOfChicken = 0;
 
 };
 
