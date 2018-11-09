@@ -9,7 +9,7 @@ public:
 	Chicken( int chickenId );
 	~Chicken();
 
-public:
+public slots:
 	int getEggCount() const;
 	int getChickenId() const;
 	float getEggInterval() const;

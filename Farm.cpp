@@ -9,7 +9,6 @@ void Farm::addChicken()
 	numberOfChicken++;
 	auto *chicken = new Chicken(numberOfChicken);
 	auto *qThread = new QThread;
-	qDebug() << qThread;
 	chickens.insert(numberOfChicken, addQThreadAndChicken(qThread, chicken));
 
 	chicken->moveToThread(qThread);
@@ -25,13 +24,18 @@ void Farm::killChicken( const int &id )
 		qDebug() << "No this  chiekjn in farm, Try ather one";
 	}
 	else {
-		qDebug() << chickens.value(id) << endl;
-		qDebug() << chickens.value(id).first;
 		chickens.value(id).first->quit();
 		chickens.value(id).first->wait();
 
-		delete chickens.take(id).second;
 		delete chickens.take(id).first;
+		delete chickens.take(id).second;
+
+//		QPair<QThread *, Chicken *> chickenKillHelper;
+//		chickenKillHelper.first = chickens.take(id).first;
+//		chickenKillHelper.second = chickens.take(id).second;
+//		delete chickenKillHelper.second;
+//		delete  chickenKillHelper.first;
+
 	}
 }
 
@@ -67,6 +71,7 @@ void Farm::layAnEgg( const int &id )
 void Farm::killAllChicken()
 {
 	for ( auto it: chickens.keys()) {
+		qDebug()<< "Killed chicken id: "<<it;
 		killChicken(it);
 	}
 }
